@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/launchesFragment"
+        android:icon="@drawable/launch_list_icon"
+        android:title="@string/launches" />
+
+    <item
+        android:id="@+id/rocketsFragment"
+        android:icon="@drawable/rocket_icon"
+        android:title="@string/rockets" />
+
+    <item
+        android:id="@+id/roadsterFragment"
+        android:icon="@drawable/car_icon"
+        android:title="@string/roadster" />
+</menu>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/launchesFragment">
+
+    <fragment
+        android:id="@+id/launchesFragment"
+        android:name="hu.tuku13.spacexapp.ui.launches.LaunchesFragment"
+        android:label="fragment_launches"
+        tools:layout="@layout/fragment_launches" >
+        <action
+            android:id="@+id/action_launchesFragment_to_launchDetailsFragment"
+            app:destination="@id/launchDetailsFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/launchesFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_launchesFragment_to_rocketsFragment"
+            app:destination="@id/rocketsFragment" />
+        <action
+            android:id="@+id/action_launchesFragment_to_roadsterFragment"
+            app:destination="@id/roadsterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/launchDetailsFragment"
+        android:name="hu.tuku13.spacexapp.ui.launch_details.LaunchDetailsFragment"
+        android:label="fragment_launch_details"
+        tools:layout="@layout/fragment_launch_details" >
+        <action
+            android:id="@+id/action_launchDetailsFragment_to_rocketDetailsFragment"
+            app:destination="@id/rocketDetailsFragment" />
+        <argument
+            android:name="launch_id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_launchDetailsFragment_to_launchesFragment"
+            app:destination="@id/launchesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rocketDetailsFragment"
+        android:name="hu.tuku13.spacexapp.ui.rocket_details.RocketDetailsFragment"
+        android:label="fragment_rocket_details"
+        tools:layout="@layout/fragment_rocket_details" >
+        <action
+            android:id="@+id/action_rocketDetailsFragment_to_rocketsFragment"
+            app:destination="@id/rocketsFragment" />
+        <argument
+            android:name="rocketId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/rocketsFragment"
+        android:name="hu.tuku13.spacexapp.ui.rockets.RocketsFragment"
+        android:label="fragment_rockets"
+        tools:layout="@layout/fragment_rockets" >
+        <action
+            android:id="@+id/action_rocketsFragment_to_launchesFragment"
+            app:destination="@id/launchesFragment" />
+        <action
+            android:id="@+id/action_rocketsFragment_to_roadsterFragment"
+            app:destination="@id/roadsterFragment" />
+        <action
+            android:id="@+id/action_rocketsFragment_to_rocketDetailsFragment"
+            app:destination="@id/rocketDetailsFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/roadsterFragment"
+        android:name="hu.tuku13.spacexapp.ui.roadster.RoadsterFragment"
+        android:label="fragment_roadster"
+        tools:layout="@layout/fragment_roadster" >
+        <action
+            android:id="@+id/action_roadsterFragment_to_rocketsFragment"
+            app:destination="@id/rocketsFragment" />
+        <action
+            android:id="@+id/action_roadsterFragment_to_launchesFragment"
+            app:destination="@id/launchesFragment" />
+    </fragment>
+</navigation>

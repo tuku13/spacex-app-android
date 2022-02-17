@@ -1,0 +1,31 @@
+package hu.tuku13.spacexapp.network
+
+data class Roadster(
+    val apoapsis_au: Double = 0.0,
+    val details: String = "",
+    val earth_distance_km: Double = 0.0,
+    val earth_distance_mi: Double = 0.0,
+    val eccentricity: Double = 0.0,
+    val epoch_jd: Double = 0.0,
+    val flickr_images: List<String> = listOf(),
+    val id: String = "",
+    val inclination: Double = 0.0,
+    val launch_date_unix: Int = 0,
+    val launch_date_utc: String = "",
+    val launch_mass_kg: Int = 0,
+    val launch_mass_lbs: Int = 0,
+    val longitude: Double = 0.0,
+    val mars_distance_km: Double = 0.0,
+    val mars_distance_mi: Double = 0.0,
+    val name: String = "",
+    val norad_id: Int = 0,
+    val orbit_type: String = "",
+    val periapsis_arg: Double = 0.0,
+    val periapsis_au: Double = 0.0,
+    val period_days: Double = 0.0,
+    val semi_major_axis_au: Double = 0.0,
+    val speed_kph: Double = 0.0,
+    val speed_mph: Double = 0.0,
+    val video: String = "",
+    val wikipedia: String = ""
+)

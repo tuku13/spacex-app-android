@@ -1,0 +1,31 @@
+package hu.tuku13.spacexapp.network
+
+data class Launch(
+    val auto_update: Boolean = false,
+    val capsules: List<Any> = listOf(),
+    val cores: List<Core> = listOf(),
+    val crew: List<Any> = listOf(),
+    val date_local: String = "",
+    val date_precision: String = "",
+    val date_unix: Int = 0,
+    val date_utc: String = "",
+    val details: String? = "",
+    val failures: List<Any> = listOf(),
+    val fairings: Fairings? = Fairings(),
+    val flight_number: Int = 0,
+    val id: String = "",
+    val launch_library_id: String? = "",
+    val launchpad: String = "",
+    val links: Links = Links(),
+    val name: String = "",
+    val net: Boolean = false,
+    val payloads: List<String> = listOf(),
+    val rocket: String = "",
+    val ships: List<Any> = listOf(),
+    val static_fire_date_unix: Int? = 0,
+    val static_fire_date_utc: String? = "",
+    val success: Boolean? = false,
+    val tbd: Boolean = false,
+    val upcoming: Boolean = false,
+    val window: Int? = 0
+)
