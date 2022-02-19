@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SpaceXApp</string>
+    <string name="app_name">SpaceX App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="mission_logo">Mission logo</string>
@@ -10,4 +10,37 @@
     <string name="details">Details</string>
     <string name="successful">Successful</string>
     <string name="result">Result</string>
+    <string name="launch_site">Launch Site</string>
+    <string name="status">Status</string>
+    <string name="description">Description</string>
+    <string name="name">Name</string>
+    <string name="specs">Specs</string>
+    <string name="other_information">Other Information</string>
+    <string name="other_facts">Other facts</string>
+    <string name="height" formatted="true">Height: %1$.2fm</string>
+    <string name="diameter" formatted="true">Diameter: %1$.2fm</string>
+    <string name="mass" formatted="true">Mass: %1$dkg</string>
+    <string name="engines_formatted" formatted="true">Engines: %1$d</string>
+    <string name="engines">Engines</string>
+    <string name="propellant1" formatted="true">Propellant #1: %1$s</string>
+    <string name="propellant2" formatted="true">Propellant #2: %1$s</string>
+    <string name="first_flight" formatted="true">First flight: %1$s</string>
+    <string name="cost_per_launch" formatted="true">Cost per launch: %1$d$</string>
+    <string name="success_rate" formatted="true">Success rate: %1$d%%</string>
+    <string name="images">Images</string>
+    <string name="rocket">Rocket</string>
+    <string name="launch_date">Launch date</string>
+    <string name="mass_word">Mass</string>
+    <string name="speed">Speed</string>
+    <string name="distance_from_mars">Distance from Mars</string>
+    <string name="distance_from_earth">Distance from Earth</string>
+    <string name="orbit_type">Orbit type</string>
+    <string name="heliocentric">heliocentric</string>
+    <string name="longitude">Longitude</string>
+    <string name="apoapsis">Apoapsis</string>
+    <string name="periapsis">Periapsis</string>
+    <string name="speed_formatted" formatted="true">%1$g km/h</string>
+    <string name="distance" formatted="true">%1$g km</string>
+    <string name="astronomical_unit" formatted="true">%1$g AU</string>
+    <string name="where_is_elon_s_roadster">Where is Elon\'s Roadster?</string>
 </resources>

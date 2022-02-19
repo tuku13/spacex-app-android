@@ -1,0 +1,32 @@
+package hu.tuku13.spacexapp.network
+
+data class Payload(
+    val apoapsis_km: Double? = null,
+    val arg_of_pericenter: Double? = null,
+    val customers: List<String> = listOf(),
+    val dragon: Dragon = Dragon(),
+    val eccentricity: Double? = null,
+    val epoch: String? = null,
+    val id: String = "",
+    val inclination_deg: Double? = null,
+    val launch: String = "",
+    val lifespan_years: Double? = null,
+    val longitude: Double? = null,
+    val manufacturers: List<String> = listOf(),
+    val mass_kg: Double? = null,
+    val mass_lbs: Double? = null,
+    val mean_anomaly: Double? = null,
+    val mean_motion: Double? = null,
+    val name: String = "",
+    val nationalities: List<String> = listOf(),
+    val norad_ids: List<Any> = listOf(),
+    val orbit: String? = null,
+    val periapsis_km: Double? = null,
+    val period_min: Double? = null,
+    val raan: Double? = null,
+    val reference_system: String? = null,
+    val regime: String? = null,
+    val reused: Boolean = false,
+    val semi_major_axis_km: Double? = null,
+    val type: String = ""
+)

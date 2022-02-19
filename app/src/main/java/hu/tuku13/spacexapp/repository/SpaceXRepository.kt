@@ -2,9 +2,11 @@ package hu.tuku13.spacexapp.repository
 
 import android.util.Log
 import hu.tuku13.spacexapp.datasource.LaunchNetworkDataSource
+import hu.tuku13.spacexapp.datasource.LaunchPadNetworkDataSource
 import hu.tuku13.spacexapp.datasource.RoadsterNetworkDataSource
 import hu.tuku13.spacexapp.datasource.RocketNetworkDataSource
 import hu.tuku13.spacexapp.network.Launch
+import hu.tuku13.spacexapp.network.LaunchPad
 import hu.tuku13.spacexapp.network.Roadster
 import hu.tuku13.spacexapp.network.Rocket
 import hu.tuku13.spacexapp.util.NetworkErrorResult
@@ -14,6 +16,7 @@ object SpaceXRepository {
     private val launchNetworkDataSource = LaunchNetworkDataSource()
     private val rocketNetworkDataSource = RocketNetworkDataSource()
     private val roadsterNetworkDataSource = RoadsterNetworkDataSource()
+    private val launchPadNetworkDataSource = LaunchPadNetworkDataSource()
 
     suspend fun getLaunches(): List<Launch>? {
         return when (val response = launchNetworkDataSource.getLaunches()) {
@@ -80,6 +83,18 @@ object SpaceXRepository {
         return when (val response = roadsterNetworkDataSource.getRoadster()) {
             is NetworkResult -> {
                 response.result as Roadster
+            }
+            is NetworkErrorResult -> {
+                Log.d("Repository", "Network Error")
+                null
+            }
+        }
+    }
+
+    suspend fun getLaunchPad(id: String): LaunchPad? {
+        return when (val response = launchPadNetworkDataSource.getLaunchpad(id)) {
+            is NetworkResult -> {
+                response.result as LaunchPad
             }
             is NetworkErrorResult -> {
                 Log.d("Repository", "Network Error")

@@ -38,6 +38,7 @@ class LaunchAdapter(
         Glide
             .with(holder.image)
             .load(item.links.patch.small)
+            .placeholder(R.mipmap.spacex_icon)
             .into(holder.image)
 
         when {

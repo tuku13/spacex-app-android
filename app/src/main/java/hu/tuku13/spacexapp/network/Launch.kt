@@ -10,7 +10,7 @@ data class Launch(
     val date_unix: Int = 0,
     val date_utc: String = "",
     val details: String? = "",
-    val failures: List<Any> = listOf(),
+    val failures: List<Failure> = listOf(),
     val fairings: Fairings? = Fairings(),
     val flight_number: Int = 0,
     val id: String = "",

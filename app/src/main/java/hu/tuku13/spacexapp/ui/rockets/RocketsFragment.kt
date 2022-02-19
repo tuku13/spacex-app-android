@@ -35,12 +35,13 @@ class RocketsFragment : Fragment() {
         }
 
         viewModel.navigateToRocketDetails.observe(viewLifecycleOwner) {
-            it?.also {
+            it?.let {
+                Log.d("navigate", it.id)
                 this.findNavController().navigate(
                     RocketsFragmentDirections.actionRocketsFragmentToRocketDetailsFragment(it.id)
                 )
+                viewModel.doneNavigating()
             }
-            viewModel.doneNavigating()
         }
 
         return binding.root

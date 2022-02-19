@@ -40,6 +40,18 @@ interface SpaceXApiService {
     @GET("/v4/roadster")
     suspend fun getRoadster(): Response<Roadster>?
 
+    @GET("/v4/payloads")
+    suspend fun getPayloads(): Response<List<Payload>>?
+
+    @GET("/v4/payloads/{id}")
+    suspend fun getPayload(@Path("id") id: String): Response<Payload>?
+
+    @GET("/v4/launchpads")
+    suspend fun getLaunchPads(): Response<List<LaunchPad>>?
+
+    @GET("/v4/launchpads/{id}")
+    suspend fun getLaunchPad(@Path("id") id: String): Response<LaunchPad>?
+
 }
 
 object SpaceXApi {

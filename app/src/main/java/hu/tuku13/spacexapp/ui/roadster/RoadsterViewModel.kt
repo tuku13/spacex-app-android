@@ -18,7 +18,8 @@ class RoadsterViewModel: ViewModel() {
     fun getRoadster() {
         _roadster.value = null
         viewModelScope.launch(Dispatchers.IO) {
-            SpaceXRepository.getRoadster()
+            val roadster = SpaceXRepository.getRoadster()
+            _roadster.postValue(roadster)
         }
     }
 }

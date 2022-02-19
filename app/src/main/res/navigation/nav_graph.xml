@@ -16,12 +16,6 @@
             app:launchSingleTop="false"
             app:popUpTo="@id/launchesFragment"
             app:popUpToInclusive="false" />
-        <action
-            android:id="@+id/action_launchesFragment_to_rocketsFragment"
-            app:destination="@id/rocketsFragment" />
-        <action
-            android:id="@+id/action_launchesFragment_to_roadsterFragment"
-            app:destination="@id/roadsterFragment" />
     </fragment>
     <fragment
         android:id="@+id/launchDetailsFragment"
@@ -30,22 +24,18 @@
         tools:layout="@layout/fragment_launch_details" >
         <action
             android:id="@+id/action_launchDetailsFragment_to_rocketDetailsFragment"
-            app:destination="@id/rocketDetailsFragment" />
+            app:destination="@id/rocketDetailsFragment"
+            app:popUpTo="@id/launchDetailsFragment"
+            app:popUpToInclusive="false" />
         <argument
             android:name="launch_id"
             app:argType="string" />
-        <action
-            android:id="@+id/action_launchDetailsFragment_to_launchesFragment"
-            app:destination="@id/launchesFragment" />
     </fragment>
     <fragment
         android:id="@+id/rocketDetailsFragment"
         android:name="hu.tuku13.spacexapp.ui.rocket_details.RocketDetailsFragment"
         android:label="fragment_rocket_details"
         tools:layout="@layout/fragment_rocket_details" >
-        <action
-            android:id="@+id/action_rocketDetailsFragment_to_rocketsFragment"
-            app:destination="@id/rocketsFragment" />
         <argument
             android:name="rocketId"
             app:argType="string" />
@@ -56,26 +46,15 @@
         android:label="fragment_rockets"
         tools:layout="@layout/fragment_rockets" >
         <action
-            android:id="@+id/action_rocketsFragment_to_launchesFragment"
-            app:destination="@id/launchesFragment" />
-        <action
-            android:id="@+id/action_rocketsFragment_to_roadsterFragment"
-            app:destination="@id/roadsterFragment" />
-        <action
             android:id="@+id/action_rocketsFragment_to_rocketDetailsFragment"
             app:destination="@id/rocketDetailsFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/rocketsFragment"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/roadsterFragment"
         android:name="hu.tuku13.spacexapp.ui.roadster.RoadsterFragment"
         android:label="fragment_roadster"
-        tools:layout="@layout/fragment_roadster" >
-        <action
-            android:id="@+id/action_roadsterFragment_to_rocketsFragment"
-            app:destination="@id/rocketsFragment" />
-        <action
-            android:id="@+id/action_roadsterFragment_to_launchesFragment"
-            app:destination="@id/launchesFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_roadster" />
 </navigation>
