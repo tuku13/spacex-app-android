@@ -9,17 +9,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-private const val BASE_URL = "https://api.spacexdata.com"
-
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
-
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .baseUrl(BASE_URL)
-    .build()
-
 interface SpaceXApiService {
 
     @GET("/v4/launches")
@@ -52,10 +41,24 @@ interface SpaceXApiService {
     @GET("/v4/launchpads/{id}")
     suspend fun getLaunchPad(@Path("id") id: String): Response<LaunchPad>?
 
-}
+    @GET("/v4/crew/{id}")
+    suspend fun getCrewMember(@Path("id") id: String): Response<CrewMember>?
 
-object SpaceXApi {
-    val retrofitService: SpaceXApiService by lazy {
-        retrofit.create(SpaceXApiService::class.java)
+    companion object {
+        private const val BASE_URL = "https://api.spacexdata.com"
+
+        fun create(): SpaceXApiService {
+            val moshi = Moshi.Builder()
+                .add(KotlinJsonAdapterFactory())
+                .build()
+
+            val retrofit = Retrofit.Builder()
+                .addConverterFactory(MoshiConverterFactory.create(moshi))
+                .baseUrl(BASE_URL)
+                .build()
+
+            return retrofit.create(SpaceXApiService::class.java)
+        }
+
     }
 }

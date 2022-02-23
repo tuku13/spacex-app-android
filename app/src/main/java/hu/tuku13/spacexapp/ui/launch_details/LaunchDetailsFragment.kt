@@ -1,7 +1,6 @@
 package hu.tuku13.spacexapp.ui.launch_details
 
 import android.os.Bundle
-import android.text.Html
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,14 +9,16 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearSnapHelper
 import com.bumptech.glide.Glide
+import dagger.hilt.android.AndroidEntryPoint
 import hu.tuku13.spacexapp.R
 import hu.tuku13.spacexapp.databinding.FragmentLaunchDetailsBinding
-import hu.tuku13.spacexapp.databinding.FragmentLaunchesBinding
 import hu.tuku13.spacexapp.network.Launch
 import hu.tuku13.spacexapp.network.LaunchPad
 import hu.tuku13.spacexapp.network.Rocket
 
+@AndroidEntryPoint
 class LaunchDetailsFragment : Fragment() {
 
     private val viewModel: LaunchDetailsViewModel by viewModels()
@@ -32,12 +33,27 @@ class LaunchDetailsFragment : Fragment() {
         val launchId = LaunchDetailsFragmentArgs.fromBundle(requireArguments()).launchId
         viewModel.getLaunch(launchId)
 
+        val adapter = CrewAdapter()
+        binding.recycleViewCrewMembers.let {
+            it.adapter = adapter
+            LinearSnapHelper().attachToRecyclerView(it)
+        }
+
         binding.imgRocketImage.setOnClickListener {
             viewModel.rocket.value?.also {
                 findNavController().navigate(
                     LaunchDetailsFragmentDirections
                         .actionLaunchDetailsFragmentToRocketDetailsFragment(it.id)
                 )
+            }
+        }
+
+        viewModel.crew.observe(viewLifecycleOwner) {
+            it?.let {
+                adapter.crewMember = it
+                if (it.isNotEmpty()) {
+                    binding.layoutCrewContainer.visibility = View.VISIBLE
+                }
             }
         }
 

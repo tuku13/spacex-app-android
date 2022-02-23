@@ -4,7 +4,7 @@ data class Launch(
     val auto_update: Boolean = false,
     val capsules: List<Any> = listOf(),
     val cores: List<Core> = listOf(),
-    val crew: List<Any> = listOf(),
+    val crew: List<String> = listOf(),
     val date_local: String = "",
     val date_precision: String = "",
     val date_unix: Int = 0,

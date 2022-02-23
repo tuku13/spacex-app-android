@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearSnapHelper
+import dagger.hilt.android.AndroidEntryPoint
 import hu.tuku13.spacexapp.R
 import hu.tuku13.spacexapp.databinding.FragmentRocketDetailsBinding
 import hu.tuku13.spacexapp.network.Rocket
 import hu.tuku13.spacexapp.util.ImageAdapter
 
+@AndroidEntryPoint
 class RocketDetailsFragment : Fragment() {
     private lateinit var binding: FragmentRocketDetailsBinding
     private val viewModel: RocketDetailsViewModel by viewModels()

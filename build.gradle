@@ -4,6 +4,9 @@ buildscript {
     dependencies {
         def nav_version = "2.4.1"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
+        def dagger_hilt_version = "2.38.1"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$dagger_hilt_version"
     }
 }
 

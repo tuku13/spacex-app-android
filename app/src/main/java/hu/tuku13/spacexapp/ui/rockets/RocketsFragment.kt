@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import hu.tuku13.spacexapp.databinding.FragmentRocketsBinding
 
+@AndroidEntryPoint
 class RocketsFragment : Fragment() {
 
     private val viewModel: RocketsViewModel by viewModels()

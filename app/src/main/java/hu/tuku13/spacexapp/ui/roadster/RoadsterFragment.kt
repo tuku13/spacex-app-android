@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearSnapHelper
+import dagger.hilt.android.AndroidEntryPoint
 import hu.tuku13.spacexapp.R
 import hu.tuku13.spacexapp.databinding.FragmentRoadsterBinding
 import hu.tuku13.spacexapp.network.Roadster
 import hu.tuku13.spacexapp.util.ImageAdapter
 
+@AndroidEntryPoint
 class RoadsterFragment : Fragment() {
 
     private val viewModel: RoadsterViewModel by viewModels()

@@ -1,22 +1,19 @@
 package hu.tuku13.spacexapp.repository
 
 import android.util.Log
-import hu.tuku13.spacexapp.datasource.LaunchNetworkDataSource
-import hu.tuku13.spacexapp.datasource.LaunchPadNetworkDataSource
-import hu.tuku13.spacexapp.datasource.RoadsterNetworkDataSource
-import hu.tuku13.spacexapp.datasource.RocketNetworkDataSource
-import hu.tuku13.spacexapp.network.Launch
-import hu.tuku13.spacexapp.network.LaunchPad
-import hu.tuku13.spacexapp.network.Roadster
-import hu.tuku13.spacexapp.network.Rocket
+import hu.tuku13.spacexapp.datasource.*
+import hu.tuku13.spacexapp.network.*
 import hu.tuku13.spacexapp.util.NetworkErrorResult
 import hu.tuku13.spacexapp.util.NetworkResult
+import javax.inject.Inject
 
-object SpaceXRepository {
-    private val launchNetworkDataSource = LaunchNetworkDataSource()
-    private val rocketNetworkDataSource = RocketNetworkDataSource()
-    private val roadsterNetworkDataSource = RoadsterNetworkDataSource()
-    private val launchPadNetworkDataSource = LaunchPadNetworkDataSource()
+class SpaceXRepository @Inject constructor(spaceXApiService: SpaceXApiService) {
+
+    private val launchNetworkDataSource = LaunchNetworkDataSource(spaceXApiService)
+    private val rocketNetworkDataSource = RocketNetworkDataSource(spaceXApiService)
+    private val roadsterNetworkDataSource = RoadsterNetworkDataSource(spaceXApiService)
+    private val launchPadNetworkDataSource = LaunchPadNetworkDataSource(spaceXApiService)
+    private val crewNetworkDataSource = CrewNetworkDataSource(spaceXApiService)
 
     suspend fun getLaunches(): List<Launch>? {
         return when (val response = launchNetworkDataSource.getLaunches()) {
@@ -24,7 +21,7 @@ object SpaceXRepository {
                 (response.result as List<Launch>).reversed()
             }
             is NetworkErrorResult -> {
-                Log.d("Repository", "Network Error")
+                Log.d("getLaunches", response.exception.toString())
                 null
             }
         }
@@ -98,6 +95,18 @@ object SpaceXRepository {
             }
             is NetworkErrorResult -> {
                 Log.d("Repository", "Network Error")
+                null
+            }
+        }
+    }
+
+    suspend fun getCrewMember(id: String): CrewMember? {
+        return when (val response = crewNetworkDataSource.getCrewMember(id)) {
+            is NetworkResult -> {
+                response.result as CrewMember
+            }
+            is NetworkErrorResult -> {
+                Log.d("getCrewMember", response.exception.message.toString())
                 null
             }
         }

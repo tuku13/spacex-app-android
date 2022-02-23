@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import hu.tuku13.spacexapp.R
 import hu.tuku13.spacexapp.databinding.FragmentLaunchesBinding
 
+@AndroidEntryPoint
 class LaunchesFragment : Fragment() {
 
     private lateinit var binding: FragmentLaunchesBinding
