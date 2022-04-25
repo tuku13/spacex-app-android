@@ -1,7 +1,6 @@
 package hu.tuku13.spacexapp.ui.launch_details
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -102,7 +101,7 @@ class LaunchDetailsFragment : Fragment() {
                 )
             }
             launch.success == true -> {
-                binding.tvSuccessful.text = "Succesful"
+                binding.tvSuccessful.text = "Successful"
                 binding.tvSuccessful.setTextColor(
                     ContextCompat.getColor(requireContext(), R.color.green)
                 )

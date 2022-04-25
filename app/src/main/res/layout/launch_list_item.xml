@@ -33,8 +33,8 @@
             android:layout_height="64dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imgLogo"
             app:layout_constraintEnd_toStartOf="@id/imgDetailsIcon"
+            app:layout_constraintStart_toEndOf="@+id/imgLogo"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -47,7 +47,7 @@
                 android:paddingEnd="20dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                tools:text="Iridium NEXT Mission 1"/>
+                tools:text="Iridium NEXT Mission 1" />
 
             <TextView
                 android:id="@+id/tvDescription"
@@ -58,18 +58,18 @@
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:textSize="16sp"
-                tools:text="2017-01-14T17:54:00.000Z"/>
+                tools:text="2017-01-14T17:54:00.000Z" />
 
             <TextView
                 android:id="@+id/tvSuccessful"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="1"
+                android:layout_gravity="center"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:textColor="@color/green"
+                android:textColor="@color/blue"
                 android:textSize="16sp"
-                tools:text="Successful" />
+                tools:text="Upcoming" />
 
 
         </LinearLayout>
